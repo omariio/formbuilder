@@ -1,0 +1,12 @@
+<div style="margin-left:25px;">
+  <div> Add node
+    <i class="fa fa-plus-circle" ng-click="form.addNode(data)"></i>
+  </div>
+  <div ng-repeat="data in form.context(data)">
+    <i class="fa fa-times-circle-o" ng-click="form.removeNode(data)"></i>
+    <input type="text" ng-model="data.key">
+    <select ng-init="data.type='text'" ng-model="data.type" ng-options="o as o for o in form.types"></select>
+    <textarea ng-show="data.type=='text'" ng-model="data.text"></textarea>
+    <div ng-show="data.type=='object'" ng-include="'object.html'"></div>
+  </div>
+</div>
